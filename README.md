@@ -7,7 +7,38 @@ Rust JNI Demo
 * Java还是不能访问一些底层的指令，如SIMD，性能提升非常明显
 * Rust也有非常强大的crates库 https://crates.io/ 自行选择
 
-# 如何获取Rust函数钩子
+# 如何生成Rust JNI函数钩子
+在Rust的lib.rs文件中，我们要实现JNI函数，那么这个函数的声明样式什么样的？ 如函数名、签名等。
+
+* 首先我们根据Java类的 static native 函数生成对应的".h"文件，如下：
+
+```
+$ javac -h . src/main/java/org/mvnsearch/RustService.java
+```
+
+* 在生成对应的".h"文件中，找到对应的声明函数，如：
+
+```
+JNIEXPORT jstring JNICALL Java_org_mvnsearch_RustService_hello
+  (JNIEnv *, jclass, jstring);
+```
+
+* 接下来在lib.rs添加对应的声明函数，然后实现其逻辑即可。
+
+```
+pub extern "system" fn Java_org_mvnsearch_RustService_hello(env: JNIEnv,
+                                                            _class: JClass,
+                                                            name: JString)
+                                                            -> jstring {
+```
+
+考虑到时间测试的需要，个人建议是编写另外一个完全Rust Native的函数声明，然后Rust JNI函数钩子调用Rust Native函数，其目的主要是方便单元测试，如下：
+
+```rust
+fn hello(name: &str) -> String {
+    format!("Hello {}!", name)
+}
+```
 
 # 动态链接库加载目录
 Java的`System.load`会从指定的目录加载，默认目录列表为System.getProperty("java.library.path")，你可以使用jshell查询，如下：
