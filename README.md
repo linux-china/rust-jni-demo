@@ -7,6 +7,8 @@ Rust JNI Demo
 * Java还是不能访问一些底层的指令，如SIMD，性能提升非常明显
 * Rust也有非常强大的crates库 https://crates.io/ 自行选择
 
+# 如何获取Rust函数钩子
+
 # 动态链接库加载目录
 Java的`System.load`会从指定的目录加载，默认目录列表为System.getProperty("java.library.path")，你可以使用jshell查询，如下：
 
@@ -34,3 +36,5 @@ $ cp -rf mylib/target/debug/libmylib.dylib ~/Library/Java/Extensions/
 # References
 
 * jni-rs: Rust bindings to the JNI https://github.com/jni-rs/jni-rs
+* JNI tips — general tips on JNI development and some Android-specific https://developer.android.com/training/articles/perf-jni
+
