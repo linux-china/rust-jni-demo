@@ -16,16 +16,14 @@ pub extern "system" fn Java_org_mvnsearch_RustService_hello(env: JNIEnv,
                                                             _class: JClass,
                                                             name: JString)
                                                             -> jstring {
-    // First, we have to get the string out of Java. Check out the `strings`
-    // module for more info on how this works.
+    // convert Java's type to Rust's type
     let name: String = env.get_string(name).expect("Couldn't get java string!").into();
 
-    // Then we have to create a new Java string to return. Again, more info
-    // in the `strings` module.
-    let output = env.new_string(hello(&name)).expect("Couldn't create java string!");
+    // call Rust native function
+    let result = hello(&name);
 
     // Finally, extract the raw pointer to return.
-    output.into_inner()
+    env.new_string(result).expect("Couldn't create java string!").into_inner()
 }
 
 fn hello(name: &str) -> String {
