@@ -68,5 +68,6 @@ $ cp -rf mylib/target/debug/libmylib.dylib ~/Library/Java/Extensions/
 # References
 
 * jni-rs: Rust bindings to the JNI https://github.com/jni-rs/jni-rs
+* jni-rs Docs:  https://docs.rs/jni/0.17.0/jni/
 * JNI tips — general tips on JNI development and some Android-specific https://developer.android.com/training/articles/perf-jni
 
