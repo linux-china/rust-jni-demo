@@ -3,9 +3,10 @@ Rust JNI Demo
 
 使用Rust编写Java JNI库，Java已经非常🐂啦，为何还要用Rust来写一些代码？
 
-* WebAssembly还有一些问题
-* Java还是不能访问一些底层的指令，如SIMD，性能提升非常明显
+* WebAssembly支持方面Java还有一些问题，通过Rust可能更方便一些
+* Java还是不能访问一些底层的API，如SIMD，通过Rust性能提升可能非常明显
 * Rust也有非常强大的crates库 https://crates.io/ 自行选择
+* JEP 389: Foreign Linker API: https://openjdk.java.net/jeps/389
 
 # 如何生成Rust JNI函数钩子
 在Rust的lib.rs文件中，我们要实现JNI函数，那么这个函数的声明样式什么样的？ 如函数名、签名等。
