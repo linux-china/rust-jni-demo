@@ -73,5 +73,7 @@ $ cp -rf mylib/target/debug/libmylib.dylib ~/Library/Java/Extensions/
 * Best practices for using the Java Native Interface: https://developer.ibm.com/articles/j-jni/
 * Java Native Interface Specification: https://docs.oracle.com/javase/9/docs/specs/jni/index.html
 * jni.h: https://github.com/openjdk/jdk/blob/master/src/java.base/share/native/include/jni.h
+* wasmer-java: WebAssembly runtime for Java: https://github.com/wasmerio/wasmer-java
+* wasmtime-java: Java or JVM-language binding for Wasmtime: https://github.com/kawamuray/wasmtime-java
 
 
