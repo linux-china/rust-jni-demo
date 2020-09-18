@@ -70,4 +70,8 @@ $ cp -rf mylib/target/debug/libmylib.dylib ~/Library/Java/Extensions/
 * jni-rs: Rust bindings to the JNI https://github.com/jni-rs/jni-rs
 * jni-rs Docs:  https://docs.rs/jni/0.17.0/jni/
 * JNI tips — general tips on JNI development and some Android-specific https://developer.android.com/training/articles/perf-jni
+* Best practices for using the Java Native Interface: https://developer.ibm.com/articles/j-jni/
+* Java Native Interface Specification: https://docs.oracle.com/javase/9/docs/specs/jni/index.html
+* jni.h: https://github.com/openjdk/jdk/blob/master/src/java.base/share/native/include/jni.h
+
 
