@@ -9,4 +9,9 @@ public class RustServiceTest {
     public void testHello() {
         System.out.println(RustService.hello("Jackie"));
     }
+
+    @Test
+    public void testIncrement() {
+        System.out.println(RustService.count("AA"));
+    }
 }
