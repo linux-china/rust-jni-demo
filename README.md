@@ -75,5 +75,6 @@ $ cp -rf mylib/target/debug/libmylib.dylib ~/Library/Java/Extensions/
 * jni.h: https://github.com/openjdk/jdk/blob/master/src/java.base/share/native/include/jni.h
 * wasmer-java: WebAssembly runtime for Java: https://github.com/wasmerio/wasmer-java
 * wasmtime-java: Java or JVM-language binding for Wasmtime: https://github.com/kawamuray/wasmtime-java
+* Rust functions with string arguments: http://jakegoulding.com/rust-ffi-omnibus/string_arguments/
 
 
