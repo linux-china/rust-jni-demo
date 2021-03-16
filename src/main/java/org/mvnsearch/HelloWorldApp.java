@@ -5,5 +5,6 @@ public class HelloWorldApp {
     public static void main(String[] args) {
         String welcome = RustService.hello("Jackie");
         System.out.println(welcome);
+        System.out.println(RustService.count("Jackie"));
     }
 }
