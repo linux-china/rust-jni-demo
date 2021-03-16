@@ -18,4 +18,5 @@ public class RustService {
      */
     public static native String hello(String name);
 
+    public static native int count(String name);
 }
