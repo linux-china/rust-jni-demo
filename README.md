@@ -40,6 +40,9 @@ fn hello(name: &str) -> String {
     format!("Hello {}!", name)
 }
 ```
+# 使用cross编译多平台的动态链接库
+
+请参考`mylib`目录下的`cross.sh`脚本。
 
 # 动态链接库加载目录
 Java的`System.load`会从指定的目录加载，默认目录列表为System.getProperty("java.library.path")，你可以使用jshell查询，如下：
