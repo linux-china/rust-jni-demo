@@ -1,5 +1,9 @@
 package org.mvnsearch;
 
+import org.mvnsearch.jni.NativeLibraryLoader;
+
+import java.io.IOException;
+
 /**
  * Rust Service by JNI
  *
@@ -7,7 +11,11 @@ package org.mvnsearch;
  */
 public class RustService {
     static {
-        System.loadLibrary("mylib");
+        try {
+            NativeLibraryLoader.getInstance().loadLibrary(null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
