@@ -26,7 +26,7 @@ pub extern "system" fn Java_org_mvnsearch_RustService_hello(mut env: JNIEnv,
     let result = hello(&name);
 
     // Finally, extract the raw pointer to return.
-    env.new_string(result).expect("Couldn't create java string!").as_raw()
+    env.new_string(result).expect("Couldn't create java string!").into_raw()
 }
 
 fn hello(name: &str) -> String {
