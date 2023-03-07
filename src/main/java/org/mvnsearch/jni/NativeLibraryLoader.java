@@ -2,6 +2,8 @@
 // Original License: https://github.com/facebook/rocksdb/blob/main/LICENSE.Apache
 package org.mvnsearch.jni;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,14 +15,13 @@ public class NativeLibraryLoader {
     //singleton
     private static final NativeLibraryLoader instance = new NativeLibraryLoader();
     private static boolean initialized = false;
-
     private static final String sharedLibraryName = Environment.getSharedLibraryName(LIB_NAME);
     private static final String jniLibraryName = Environment.getJniLibraryName(LIB_NAME);
-    private static final /* @Nullable */ String fallbackJniLibraryName =
-            Environment.getFallbackJniLibraryName(LIB_NAME);
+    @Nullable
+    private static final String fallbackJniLibraryName = Environment.getFallbackJniLibraryName(LIB_NAME);
     private static final String jniLibraryFileName = Environment.getJniLibraryFileName(LIB_NAME);
-    private static final /* @Nullable */ String fallbackJniLibraryFileName =
-            Environment.getFallbackJniLibraryFileName("mylib");
+    @Nullable
+    private static final String fallbackJniLibraryFileName = Environment.getFallbackJniLibraryFileName(LIB_NAME);
     private static final String tempFilePrefix = "lib" + LIB_NAME + "_javajni";
     private static final String tempFileSuffix = Environment.getJniLibraryExtension();
 
@@ -54,7 +55,6 @@ public class NativeLibraryLoader {
                 // ignore - then try from jar
             }
         }
-
         // try jar
         loadLibraryFromJar(tmpDir);
     }
@@ -67,8 +67,7 @@ public class NativeLibraryLoader {
         }
     }
 
-    File loadLibraryFromJarToTemp(final String tmpDir)
-            throws IOException {
+    File loadLibraryFromJarToTemp(final String tmpDir) throws IOException {
         InputStream is = null;
         try {
             // attempt to look up the static library in the jar file
@@ -113,10 +112,8 @@ public class NativeLibraryLoader {
             } else {
                 temp.deleteOnExit();
             }
-
             // copy the library from the Jar file to the temp destination
             Files.copy(is, temp.toPath(), StandardCopyOption.REPLACE_EXISTING);
-
             // return the temporary library file
             return temp;
 
