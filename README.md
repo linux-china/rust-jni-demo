@@ -68,6 +68,21 @@ $ cp -rf mylib/target/debug/libmylib.dylib ~/Library/Java/Extensions/
 
 在IDE工具中，都有对应的VM options方便你进行设置。
 
+# Exception throw from Rust 
+
+```rust
+fn java_string_with_exception(result: Result<String, ErrorMessages>, env: &JNIEnv) -> jstring {
+    if let Ok(text) = result {
+        env.new_string(text)
+            .expect("Couldn't create java string!")
+            .into_raw()
+    } else {
+        env.throw_new("java/lang/Exception", "something bad happened").unwrap();
+        std::ptr::null_mut() as jstring
+    }
+}
+```
+
 # References
 
 * jni-rs: Rust bindings to the JNI https://github.com/jni-rs/jni-rs
