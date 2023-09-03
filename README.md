@@ -94,5 +94,6 @@ fn java_string_with_exception(result: Result<String, ErrorMessages>, env: &JNIEn
 * wasmer-java: WebAssembly runtime for Java: https://github.com/wasmerio/wasmer-java
 * wasmtime-java: Java or JVM-language binding for Wasmtime: https://github.com/kawamuray/wasmtime-java
 * Rust functions with string arguments: http://jakegoulding.com/rust-ffi-omnibus/string_arguments/
+* rust-maven-plugin: https://github.com/questdb/rust-maven-plugin
 
 
